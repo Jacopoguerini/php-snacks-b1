@@ -5,19 +5,22 @@ Passare come parametri GET name, mail e age e verificare (cercando i metodi che 
 <?php 
 
     
-    $parameters = [
-        $name = $_GET["name"],
-        $mail = $_GET["mail"],
-        $age = $_GET["age"]
-    ];
 
-    for ($i; $i <= count($parameters); $i++) {
-        if (strlen($name) > 3 && str_contains($mail, '.') && str_contains($mail, '@') && is_numeric($age) == true)  {
-            echo "Accesso riuscito";
-        } else {
-            echo "Accesso negato";
-        }
+    $name = $_GET["name"];
+    $mail = $_GET["mail"];
+    $age = $_GET["age"];
+
+    
+    echo $name;
+    echo $mail;
+    echo $age;
+
+    if (!empty($name) && !empty($mail) && !empty($age) && strlen($name) > 3 && strpos($mail, '.') !== false && strpos($mail, '@') !== false && is_numeric($age))  {
+        echo "Accesso riuscito";
+    } else {
+        echo "Accesso negato";
     }
+
 
  ?>
  
